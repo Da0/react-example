@@ -1,0 +1,262 @@
+.dataList {
+    flex: 1 1 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.dataList__item {
+    flex: 1 1 50%;
+    position: relative;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.dataList_table .dataList__item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+    transform: inherit;
+    opacity: inherit;
+    box-shadow: 0 0 30px rgba(0,0,0,.3);
+}
+.dataList_table .dataList__item::before,
+.dataList__inner,
+.dataList_previews .dataList__item {
+    opacity: 0;
+    transform: scale(0.9);
+    background-color: white;
+}
+.dataList__inner {
+    display: inherit;
+    flex: 1;
+    flex-direction: inherit;
+    align-items: inherit;
+    padding: 16px 8px;
+    background-color: white;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    border-style: solid;
+    border-color: #cecece;
+    border-width: 0 0 1px;
+}
+.dataList__item:nth-child(even) .dataList__inner {
+    border-left-width: 1px;
+}
+.dataList__id {
+    flex: 0 0 auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    background: black;
+    color: white;
+    line-height: 1;
+    padding: 2px;
+    font-size: x-small;
+}
+.dataList_table .dataList__id {
+    opacity: 0;
+    transition: opacity 400ms;
+}
+.dataList__pic {
+    width: 100%;
+    flex: none;
+    height: 100px;
+    margin-bottom: 10px;
+}
+.dataList__image {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+}
+.dataList__fav {
+    color: #cccccc;
+    border: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    z-index: 1;
+    font-size: x-large;
+    line-height: 1;
+    padding: 0;
+    background-color: #f5f5f5;
+    transition: border-color 200ms ease-in, color 200ms ease-out;
+}
+.dataList__fav_active {
+    color: var(--primary-bg-color);
+}
+
+.dataList_previews {
+    box-shadow: none;
+}
+.dataList_previews .dataList__item {
+    flex-basis: 100%;
+    margin-bottom: 20px;
+    /*border: none;*/
+}
+.dataList_previews .dataList__item:last-child {
+    margin-bottom: 0;
+}
+.dataList_previews .dataList__inner {
+    border: none;
+    opacity: 1;
+    transform: none;
+    flex-wrap: wrap;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+.dataList_previews .dataList__pic,
+.dataList_previews .dataList__name,
+.dataList_previews .dataList__fav {
+    order: -1;
+}
+.dataList__video {
+    width: 100%;
+}
+
+
+/* Animation */
+.dataList_table .alert-enter .dataList__inner,
+.dataList_table .alert-enter-active .dataList__inner,
+.dataList_table .alert-enter::before,
+.dataList_table .alert-enter-active::before {
+    /*opacity: 0;*/
+    /*transform: scale(0.9);*/
+    transition: opacity 1000ms, transform 1000ms;
+}
+.dataList_table .alert-enter .dataList__inner,
+.dataList_table .alert-enter::before {
+    will-change: opacity, transform;
+}
+.dataList_table .alert-enter .dataList__inner,
+.dataList_table .alert-enter-active .dataList__inner,
+.dataList_table .alert-enter-done .dataList__inner,
+.dataList_table .alert-enter::before,
+.dataList_table .alert-enter-active::before,
+.dataList_table .alert-enter-done::before,
+.dataList_previews .alert-enter,
+.dataList_previews .alert-enter-active,
+.dataList_previews .alert-enter-done {
+    opacity: 1;
+    transform: scale(1);
+}
+.dataList_table .alert-enter-done .dataList__id {
+    opacity: 1;
+}
+/*.alert-exit .dataList__inner,*/
+/*.alert-exit::before {*/
+    /*opacity: 1;*/
+/*}*/
+/*.alert-exit-active .dataList__inner,*/
+/*.alert-exit-active::before {*/
+    /*opacity: 0;*/
+    /*transform: scale(0.9);*/
+/*}*/
+.dataList_previews .dataList__inner {
+    opacity: inherit;
+    transform: inherit;
+    transition: opacity 200ms, transform 400ms;
+    transition-delay: 50ms;
+}
+.dataList_previews .alert-enter,
+.dataList_previews .alert-enter-active {
+    transition: opacity 1000ms, transform 1000ms, box-shadow 1000ms;
+}
+.dataList_previews .alert-enter {
+    will-change: opacity, transform, box-shadow;
+}
+.dataList_previews .alert-enter,
+.dataList_previews .alert-enter-active,
+.dataList_previews .alert-enter-done {
+    box-shadow: 0 0 30px rgba(0,0,0,.3);
+}
+
+
+@media (min-width: 768px) {
+    .dataList__item {
+        text-align: inherit;
+        flex: 1 1 100%;
+        flex-direction: row;
+    }
+    .dataList__inner {
+        border-left: none;
+        padding: 16px 20px;
+    }
+    .dataList__id {
+        left: auto;
+        right: 100%;
+    }
+    .dataList__pic {
+        width: auto;
+        flex: 0 0 42px;
+        height: 42px;
+        margin-bottom: 0;
+    }
+    .dataList__name,
+    .dataList__age,
+    .dataList__phone {
+        padding: 0 10px;
+    }
+    .dataList__name {
+        flex: 1 1 auto;
+    }
+    .dataList__age {
+        flex: 0 1 155px;
+    }
+    .dataList__phone {
+        flex: 0 1 165px;
+    }
+    .dataList__fav {
+        cursor: pointer;
+        position: static;
+        flex: 0 1 auto;
+        width: auto;
+        height: auto;
+        text-align: right;
+        background: none;
+        border: 1px solid transparent;
+        line-height: 1.25;
+        padding: 0 5px;
+    }
+    .dataList__fav:hover {
+        border: 1px solid;
+    }
+
+    .dataList_previews {
+        justify-content: space-between
+    }
+    .dataList_previews .dataList__item {
+        flex: 0 1 calc(50% - 10px);
+        background-color: white;
+    }
+
+    .dataList_previews .dataList__pic,
+    .dataList_previews .dataList__name,
+    .dataList_previews .dataList__age,
+    .dataList_previews .dataList__phone,
+    .dataList_previews .dataList__phrase {
+        padding: 0;
+        margin: .5em 0;
+    }
+    .dataList_previews .dataList__item_video,
+    .dataList_previews .dataList__age,
+    .dataList_previews .dataList__phone,
+    .dataList_previews .dataList__phrase {
+        flex-basis: 100%;
+    }
+    .dataList__item_video .dataList__inner,
+    .dataList__video {
+        width: 50%;
+    }
+}

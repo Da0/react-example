@@ -1,0 +1,22 @@
+{
+  "title": {
+    "ru": "Сортировка",
+    "en": "Sort by"
+  },
+  "name": {
+    "ru": "Имя",
+    "en": "Name"
+  },
+  "age": {
+    "ru": "Возраст",
+    "en": "Age"
+  },
+  "asc": {
+    "ru": "По возрастанию",
+    "en": "Ascending"
+  },
+  "desc": {
+    "ru": "По убыванию",
+    "en": "Descending"
+  }
+}

@@ -1,0 +1,15 @@
+.filter {
+    flex: 1 1 100%;
+    margin-bottom: 40px;
+}
+.filter__input {
+    height: 44px;
+    display: block;
+    width: 100%;
+    padding: 0 20px;
+    border: 1px solid;
+    transition: box-shadow 200ms ease-in, border-color 200ms ease-out;
+}
+.filter__input:focus {
+    box-shadow: 0 0 30px rgba(0, 0, 0, .3);
+}

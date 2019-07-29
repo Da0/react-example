@@ -63,7 +63,9 @@ class ListVideo extends React.Component {
     }
 
     componentWillUnmount() {
-        this.videoObserver = this.videoObserver.disconnect();
+        if (this.videoObserver) {
+            this.videoObserver = this.videoObserver.disconnect();
+        }
     }
 
     componentDidUpdate(prevProps) {

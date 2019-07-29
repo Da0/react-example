@@ -7,33 +7,22 @@ class ListVideo extends React.Component {
         super(props);
         this.videoRef = React.createRef();
         this.videoObserver = null;
-        // this.videoHeight = 0;
         this._handleVideoEnter = this._handleVideoEnter.bind(this);
         this._handleVideoLeave = this._handleVideoLeave.bind(this);
     }
 
     _handleVideoEnter() {
-        const id = this.props.id;
+        this.videoRef.current.play();
 
-        if (this.props.playedId !== id && this.videoRef.current.paused) {
-            this.videoRef.current.play();
-
-            if (this.props.playedId) {
-                console.log(true);
-                document.getElementById(`video-${this.props.playedId}`).pause();
-            }
-            this.props.addPlayedId(id)
+        if (this.props.playedId) {
+            document.getElementById(`video-${this.props.playedId}`).pause();
         }
+        this.props.addPlayedId(this.props.id)
     }
 
     _handleVideoLeave() {
-        if (!this.videoRef.current.paused && !this.videoRef.current.ended) {
-            this.videoRef.current.pause();
-        }
-
-        if (this.props.playedId === this.props.id) {
-            this.props.removePlayedId();
-        }
+        this.videoRef.current.pause();
+        this.props.removePlayedId();
     }
 
     componentDidMount() {
@@ -51,12 +40,17 @@ class ListVideo extends React.Component {
                         //     entry.isIntersecting     // intersecting: true or false
                         // ]);
 
-                        if (entry.isIntersecting) {
+                        if (entry.isIntersecting && this.props.playedId !== this.props.id && entry.target.paused) {
                             this._handleVideoEnter();
                         }
-                        else {
-                            this._handleVideoLeave();
-                        }
+                        else if (!entry.isIntersecting &&
+                            this.props.playedId === this.props.id &&
+                            !entry.target.paused &&
+                            !this.videoRef.current.ended &&
+                            this.videoRef.current.currentTime > 0 &&
+                            this.videoRef.current.readyState > 2) {
+                                this._handleVideoLeave();
+                            }
                     });
                 },
                 {

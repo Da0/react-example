@@ -70,19 +70,19 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
 
-## Основные задачи
-1. С помощью AJAX получить JSON-файл (см. материалы к заданию) со списком людей и информацией о них.
-2. Реализовать на JS вывод всех полученных людей в виде таблицы на основе полученного JSON-файла (см. мокап). Необязательно, чтобы это был тэг table.
-3. Реализовать вывод людей в виде “превью” (см. мокап). Элементы у которых есть поле “video”, занимают всю ширину области и содержат плеер с этим видео из папки “videos” (см. материалы к заданию).
-4. Реализовать сортировку (работает и для таблицы, и для превью).
-5. Сделать переключатель, который без перезагрузки страницы включит англоязычный интерфейс (Sort by, Table/Previews, 30 years, ...).
-6. Сделать фильтрацию (текстовым полем) по имени и/или фамилии. Предусмотреть возможность того, что пользователь может вписать в поле сначала фамилию, а потом имя.
-7. Выбранный тип отображения списка, активная сортировка и фильтрация сохраняются в URL страницы. При открытии страницы, адрес страницы считывается с помощью JS и включаются соотстветсвующие фильтры, сортировки и тд.
-8. Страница должна адаптироваться для планшетов и телефонов. Частью функционала на мобильных устройствах можно пожертвовать (например, автозапуском видео и анимацией).
-9. Реализовать добавление/удаление из избранного. Без AJAX (менять поле в Redux-хранилище).
-10. Анимация интерфейса. Реализовать анимацию элементов интерфейса (переключатели, фильтр и тд). 
-11. Анимация списка. При загрузке, пересортировке, фильтрации и смене вида, элементы списка появляются друг за другом (с небольшой задержкой относительно друг друга).
-12. Autoplay. Видеоролики в превью автоматически запускаются, когда видео находится в районе середины экрана и становтся на паузу, когда выходят из этой зоны. Не может играть два видео одновременно. После «ручного» запуска какого-либо видео функция автоплея отключается.
-## Бонусные задачи:
-1. Анимация списка. Элементы, которые не попадают в просматриваемую область, появляются анимированно только по мере прокрутки страницы вниз. В таблице анимированно прилетают строки целиком, а в виде превью — анимируется и сам блок превью (подложка с тенью) и все элементы внутри блока.
-2. Брендируемость. Элементы интерфейса (кнопки, favourite и тд) имеют цвет из переменной (например, какой-нибудь $brandColor в стилях). Цвета для различных вариаций этих элементов (например их ховеры), должны автоматически расчитываться на основе переменной. Для смены цветовой схемы, достаточно изменить только значение переменной.
+## Main tasks
+1. Using AJAX, get a JSON file (see task materials) with a list of people and information about them.
+2. Implement on JS the output of all received people as a table based on the received JSON file (see the mocap). It is not necessary that this be a table tag.
+3. Implement the output of people in the form of a “preview” (see mocap). Elements that have a “video” field occupy the entire width of the area and contain a player with this video from the “videos” folder (see the materials for the task).
+4. Implement sorting (works both for the table and for the preview).
+5. Make a switch that will turn on the English interface (Sort by, Table / Previews, 30 years, ...) without reloading the page.
+6. Make filtering (text box) by name and / or last name. Provide the possibility that the user can enter in the field first, last name, and then the name.
+7. The selected list display type, active sorting and filtering are saved in the URL of the page. When you open the page, the page address is read using JS and the corresponding filters, sorting and so on are turned on.
+8. The page should be adapted for tablets and phones. Part of the functionality on mobile devices can be sacrificed (for example, autorun video and animation).
+9. Implement add / remove from favorites. Without AJAX (change field in Redux-storage).
+10. Animation of the interface. Implement the animation elements of the interface (switches, filters, etc.).
+11. Animation list. When loading, re-sorting, filtering and changing the view, the elements of the list appear one after another (with a slight delay relative to each other).
+12. Autoplay. Videos in the preview automatically start when the video is in the middle of the screen and pauses when they leave this zone. Can't play two videos at the same time. After the “manual” launch of any video, the autoplay function is disabled.
+## Bonus tasks:
+1. Animation list. Elements that do not fall into the viewing area appear animated only as the page scrolls down. The entire table is animated in the table, and in the form of a preview, the block of the preview itself (background with a shadow) and all elements inside the block are animated.
+2. Branding. Interface elements (buttons, favorite, etc.) have a color from a variable (for example, some $ brandColor in styles). Colors for different variations of these elements (for example, their hovers) should be automatically calculated based on the variable. To change the color scheme, it is enough to change only the value of the variable.

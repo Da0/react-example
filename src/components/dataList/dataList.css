@@ -136,7 +136,9 @@
     transition: opacity 1000ms, transform 1000ms;
 }
 .dataList_table .alert-enter .dataList__inner,
-.dataList_table .alert-enter::before {
+.dataList_table .alert-enter::before,
+.dataList_table .alert-enter-active .dataList__inner,
+.dataList_table .alert-enter-active::before {
     will-change: opacity, transform;
 }
 .dataList_table .alert-enter .dataList__inner,
@@ -181,7 +183,6 @@
 .dataList_previews .alert-enter-done {
     box-shadow: 0 0 30px rgba(0,0,0,.3);
 }
-
 
 @media (min-width: 768px) {
     .dataList__item {
